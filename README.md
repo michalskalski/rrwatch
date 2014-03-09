@@ -3,7 +3,13 @@ rrwatch
 
 RoundRobin watch check if hosts defined in A and AAAA records for given urls are available and if not make them stop appear in dns answers.
 Script works with PowerDNS and mysql backend.
-This is modification of code founded on http://www.pmamediagroup.com/2009/06/setting-powerdns-to-ignore-records-for-downed-web-sites/
+This is modification of code founded on http://www.pmamediagroup.com/2009/06/setting-powerdns-to-ignore-records-for-downed-web-sites/ added:
+
+* AAAA records
+* recognize connection type (http or https)
+* logging
+* run like a daemon when system start
+* always keep at least one record for domain
 
 ##PowerDNS configuration
 
