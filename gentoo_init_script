@@ -1,0 +1,24 @@
+#!/sbin/runscript
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+depend() {
+   need net localmount
+   after bootmisc mysql
+}
+
+start() {
+    ebegin "Start rrwatch daemon..."
+    start-stop-daemon --start --exec /usr/local/bin/rrwatch_control.rb start \
+        --pidfile /var/run/rrwatch.rb_monitor.pid
+    eend $?
+}
+
+stop() {
+    ebegin "Stop rrwatch daemon..."
+    /usr/local/bin/rrwatch_control.rb stop
+    eend $?
+
+}
+
